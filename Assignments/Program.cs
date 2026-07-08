@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
  class program
 {
@@ -8,8 +8,10 @@
             a.display();*/
           /*  assignment1 c =new assignment1();
             c.divya();*/
-            assignment2 b=new assignment2();
-            b.view();
+           /* assignment2 b=new assignment2();
+            b.view();*/
+            july_8 d=new july_8();
+            d.assignment3();
             
 
 
@@ -25,5 +27,3 @@
 
         }
 }
-
-    
