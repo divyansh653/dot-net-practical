@@ -10,17 +10,10 @@ using System;
             c.divya();*/
            /* assignment2 b=new assignment2();
             b.view();*/
-            july_8 d=new july_8();
-            d.assignment3();
-            
-
-
-
-
-
-
-
-
+           /* july_8 d=new july_8();
+            d.assignment3();*/
+            july_8_Assign2 e=new july_8_Assign2();
+            e.Assign2();
 
 
 
