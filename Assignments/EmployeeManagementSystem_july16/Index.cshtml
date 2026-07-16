@@ -1,29 +1,23 @@
-//================================================
-//          Employee Index.cshtml
-//==========================================================
+﻿@model List<EmployeeManagementSystem_july16.Models.Department>
 
-@model List<EmployeeManagementSystem_july16.Models.Employee>
-
-<h2>Employee List</h2>
+<h2>Department List</h2>
 
 <div>
 <table border="1" cellpadding="10">
     <tr>
-        <th>ID</th>
-        <th>Name</th>
         <th>Department</th>
-        <th>Salary</th>
+        <th>Head</th>
+        <th>Contact</th>
         <th>Email</th>
     </tr>
 
-    @foreach (var emp in Model)
+    @foreach (var dept in Model)
     {
         <tr>
-            <td>@emp.EmployeeId</td>
-            <td>@emp.Name</td>
-            <td>@emp.Department</td>
-            <td>@emp.Salary</td>
-            <td>@emp.Email</td>
+            <td>@dept.DepartmentName</td>
+            <td>@dept.DepartmentHead</td>
+            <td>@dept.HeadContact</td>
+            <td>@dept.HeadEmail</td>
         </tr>
     }
 
