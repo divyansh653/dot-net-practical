@@ -1,0 +1,72 @@
+﻿@model July_21.Models.Student
+
+<div class="text-center">
+    <h3 class="display-4">Student Admission Form</h3>
+</div>
+
+@using (Html.BeginForm())
+{
+    // Display all validation errors
+    @Html.ValidationSummary(true)
+
+    <table>
+        <!-- Name -->
+        <tr>
+            <td>Name :</td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+
+        <!-- Age -->
+        <tr>
+            <td>Age :</td>
+            <td>
+                @Html.TextBoxFor(m => m.Age)
+                @Html.ValidationMessageFor(m => m.Age)
+            </td>
+        </tr>
+
+        <!-- Email -->
+        <tr>
+            <td>Email :</td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </td>
+        </tr>
+
+        <!-- Course -->
+        <tr>
+            <td>Course :</td>
+            <td>
+                @Html.TextBoxFor(m => m.Course)
+                @Html.ValidationMessageFor(m => m.Course)
+            </td>
+        </tr>
+
+        <!-- Submit Button -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Register" />
+            </td>
+        </tr>
+
+        <!-- Success Message -->
+        <tr>
+            <td></td>
+            <td>
+                <span style="color:green">@ViewBag.Message</span>
+            </td>
+        </tr>
+    </table>
+}
+@if (ViewBag.Message != null)
+{
+    <br />
+    <h3 style="color:green">
+        @ViewBag.Message
+    </h3>
+}
