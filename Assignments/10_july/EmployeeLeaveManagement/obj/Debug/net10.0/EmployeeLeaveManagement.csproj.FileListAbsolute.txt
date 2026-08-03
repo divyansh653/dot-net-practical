@@ -1,0 +1,14 @@
+D:\.net practical\EmployeeLeaveManagement\bin\Debug\net10.0\EmployeeLeaveManagement.exe
+D:\.net practical\EmployeeLeaveManagement\bin\Debug\net10.0\EmployeeLeaveManagement.deps.json
+D:\.net practical\EmployeeLeaveManagement\bin\Debug\net10.0\EmployeeLeaveManagement.runtimeconfig.json
+D:\.net practical\EmployeeLeaveManagement\bin\Debug\net10.0\EmployeeLeaveManagement.dll
+D:\.net practical\EmployeeLeaveManagement\bin\Debug\net10.0\EmployeeLeaveManagement.pdb
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.AssemblyInfoInputs.cache
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.AssemblyInfo.cs
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.csproj.CoreCompileInputs.cache
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.dll
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\refint\EmployeeLeaveManagement.dll
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.pdb
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\EmployeeLeaveManagement.genruntimeconfig.cache
+D:\.net practical\EmployeeLeaveManagement\obj\Debug\net10.0\ref\EmployeeLeaveManagement.dll
