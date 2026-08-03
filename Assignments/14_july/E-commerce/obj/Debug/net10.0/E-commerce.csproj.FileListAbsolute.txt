@@ -1,0 +1,14 @@
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.AssemblyInfoInputs.cache
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.AssemblyInfo.cs
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.csproj.CoreCompileInputs.cache
+D:\.net practical\E-commerce\bin\Debug\net10.0\E-commerce.exe
+D:\.net practical\E-commerce\bin\Debug\net10.0\E-commerce.deps.json
+D:\.net practical\E-commerce\bin\Debug\net10.0\E-commerce.runtimeconfig.json
+D:\.net practical\E-commerce\bin\Debug\net10.0\E-commerce.dll
+D:\.net practical\E-commerce\bin\Debug\net10.0\E-commerce.pdb
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.dll
+D:\.net practical\E-commerce\obj\Debug\net10.0\refint\E-commerce.dll
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.pdb
+D:\.net practical\E-commerce\obj\Debug\net10.0\E-commerce.genruntimeconfig.cache
+D:\.net practical\E-commerce\obj\Debug\net10.0\ref\E-commerce.dll
