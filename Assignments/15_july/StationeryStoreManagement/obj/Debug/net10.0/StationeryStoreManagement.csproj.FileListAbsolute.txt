@@ -1,0 +1,14 @@
+D:\.net practical\StationeryStoreManagement\bin\Debug\net10.0\StationeryStoreManagement.exe
+D:\.net practical\StationeryStoreManagement\bin\Debug\net10.0\StationeryStoreManagement.deps.json
+D:\.net practical\StationeryStoreManagement\bin\Debug\net10.0\StationeryStoreManagement.runtimeconfig.json
+D:\.net practical\StationeryStoreManagement\bin\Debug\net10.0\StationeryStoreManagement.dll
+D:\.net practical\StationeryStoreManagement\bin\Debug\net10.0\StationeryStoreManagement.pdb
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.AssemblyInfoInputs.cache
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.AssemblyInfo.cs
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.csproj.CoreCompileInputs.cache
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.dll
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\refint\StationeryStoreManagement.dll
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.pdb
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\StationeryStoreManagement.genruntimeconfig.cache
+D:\.net practical\StationeryStoreManagement\obj\Debug\net10.0\ref\StationeryStoreManagement.dll
