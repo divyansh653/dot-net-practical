@@ -1,0 +1,25 @@
+﻿@model List<EmployeeManagementSystem_july16.Models.Department>
+
+<h2>Department List</h2>
+
+<div>
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Department</th>
+        <th>Head</th>
+        <th>Contact</th>
+        <th>Email</th>
+    </tr>
+
+    @foreach (var dept in Model)
+    {
+        <tr>
+            <td>@dept.DepartmentName</td>
+            <td>@dept.DepartmentHead</td>
+            <td>@dept.HeadContact</td>
+            <td>@dept.HeadEmail</td>
+        </tr>
+    }
+
+</table>
+</div>
