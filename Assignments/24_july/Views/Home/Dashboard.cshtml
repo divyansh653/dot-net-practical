@@ -1,0 +1,34 @@
+﻿@model List<_24_july.Models.Stationery>
+
+<h2 class="text-center">Stationery Details</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Item Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Color</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ItemName</td>
+                <td>@item.Brand</td>
+                <td>₹ @item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.Color</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+
+<a asp-action="Logout" class="btn btn-danger">
+    Logout
+</a>
