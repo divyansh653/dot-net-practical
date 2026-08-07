@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Success";
+}
+
+<h2 class="text-success">Employee Added Successfully</h2>
+
+<hr />
+
+<h4>Employee Details</h4>
+
+<p>
+    <strong>Employee Name :</strong>
+    @TempData["EmployeeName"]
+</p>
+
+<p>
+    <strong>Department :</strong>
+    @TempData["Department"]
+</p>
+
+<br />
+
+<a asp-controller="Department"
+   asp-action="Index"
+   class="btn btn-success">
+    View Department Details
+</a>
