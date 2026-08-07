@@ -1,0 +1,66 @@
+﻿@model AutomobileSystem_MVC.Models.Automobile
+
+@{
+    ViewData["Title"] = "Automobile Registration";
+}
+
+<h2 class="text-center text-primary">Automobile Registration Form</h2>
+
+<form asp-action="Index" asp-controller="Automobile" method="post">
+
+    <div class="mb-3">
+        <label asp-for="VehicleId" class="form-label"></label>
+        <input asp-for="VehicleId" class="form-control" />
+        <span asp-validation-for="VehicleId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="VehicleName" class="form-label"></label>
+        <input asp-for="VehicleName" class="form-control" />
+        <span asp-validation-for="VehicleName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Brand" class="form-label"></label>
+        <input asp-for="Brand" class="form-control" />
+        <span asp-validation-for="Brand" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ModelYear" class="form-label"></label>
+        <input asp-for="ModelYear" class="form-control" />
+        <span asp-validation-for="ModelYear" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FuelType" class="form-label"></label>
+
+        <select asp-for="FuelType" class="form-select">
+            <option value="">-- Select Fuel Type --</option>
+            <option>Petrol</option>
+            <option>Diesel</option>
+            <option>Electric</option>
+            <option>Hybrid</option>
+            <option>CNG</option>
+        </select>
+
+        <span asp-validation-for="FuelType" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Next
+    </button>
+
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

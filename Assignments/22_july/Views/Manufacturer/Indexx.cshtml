@@ -1,0 +1,87 @@
+﻿@model AutomobileSystem_MVC.Models.Manufacturer
+
+@{
+    ViewData["Title"] = "Manufacturer Details";
+}
+
+<h2 class="text-center text-primary">Manufacturer Details</h2>
+
+<form asp-action="Index" asp-controller="Manufacturer" method="post">
+
+    <div class="mb-3">
+        <label asp-for="ManufacturerName" class="form-label"></label>
+        <input asp-for="ManufacturerName" class="form-control" />
+        <span asp-validation-for="ManufacturerName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Country" class="form-label"></label>
+        <input asp-for="Country" class="form-control" />
+        <span asp-validation-for="Country" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ContactNumber" class="form-label"></label>
+        <input asp-for="ContactNumber" class="form-control" />
+        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EmailAddress" class="form-label"></label>
+        <input asp-for="EmailAddress" class="form-control" />
+        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Register Automobile
+    </button>
+
+</form>
+
+@if (ViewBag.Success != null)
+{
+    <hr />
+
+    <div class="alert alert-success">
+        <h4>@ViewBag.Success</h4>
+
+        <p>
+            <strong>Vehicle Name:</strong> @ViewBag.VehicleName
+        </p>
+
+        <p>
+            <strong>Brand:</strong> @ViewBag.Brand
+        </p>
+    </div>
+
+    <h3>Manufacturer Information</h3>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Manufacturer Name</th>
+            <td>@ViewBag.Manufacturer.ManufacturerName</td>
+        </tr>
+
+        <tr>
+            <th>Country</th>
+            <td>@ViewBag.Manufacturer.Country</td>
+        </tr>
+
+        <tr>
+            <th>Contact Number</th>
+            <td>@ViewBag.Manufacturer.ContactNumber</td>
+        </tr>
+
+        <tr>
+            <th>Email Address</th>
+            <td>@ViewBag.Manufacturer.EmailAddress</td>
+        </tr>
+    </table>
+}
+
+@section Scripts
+{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
