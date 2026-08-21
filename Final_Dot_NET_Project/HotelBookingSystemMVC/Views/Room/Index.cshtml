@@ -1,0 +1,127 @@
+@model List<RoomViewModel>
+@{
+    ViewData["Title"] = "Rooms";
+    var hotels = ViewBag.Hotels as List<HotelViewModel> ?? new List<HotelViewModel>();
+    var selectedHotelId = ViewBag.HotelId as int?;
+    var isAdmin = ViewBag.IsAdmin as bool? == true;
+}
+
+<h1>Rooms</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form method="get" asp-action="Index" class="row g-3 align-items-end mb-4">
+    <div class="col-md-4">
+        <label class="form-label">Hotel</label>
+        <select name="hotelId" class="form-select" onchange="this.form.submit()">
+            <option value="">-- All Hotels --</option>
+            @foreach (var hotel in hotels)
+            {
+                if (selectedHotelId == hotel.Id)
+                {
+                    <option value="@hotel.Id" selected>@hotel.HotelName</option>
+                }
+                else
+                {
+                    <option value="@hotel.Id">@hotel.HotelName</option>
+                }
+            }
+        </select>
+    </div>
+</form>
+
+@if (isAdmin)
+{
+    <h5>Add Room</h5>
+    <form asp-action="Create" method="post" class="row g-3 mb-4">
+        @Html.AntiForgeryToken()
+        <div class="col-md-3">
+            <label class="form-label">Hotel</label>
+            <select name="HotelId" class="form-select" required>
+                <option value="">-- Select Hotel --</option>
+                @foreach (var hotel in hotels)
+                {
+                    if (selectedHotelId == hotel.Id)
+                    {
+                        <option value="@hotel.Id" selected>@hotel.HotelName</option>
+                    }
+                    else
+                    {
+                        <option value="@hotel.Id">@hotel.HotelName</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Room ID</label>
+            <input name="Id" type="number" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Room Number</label>
+            <input name="Room_Number" type="number" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Room Type</label>
+            <select name="Room_Type" class="form-select">
+                <option value="Standard">Standard</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <label class="form-label">Price</label>
+            <input name="Price" type="number" class="form-control" value="0" required />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Status</label>
+            <select name="Status" class="form-select">
+                <option value="Available">Available</option>
+                <option value="Occupied">Occupied</option>
+                <option value="Maintenance">Maintenance</option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Add Room</button>
+        </div>
+    </form>
+}
+
+@if (ViewBag.HotelId != null)
+{
+    <p class="text-muted">Showing rooms for Hotel ID @ViewBag.HotelId</p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Room ID</th>
+            <th>Hotel Id</th>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.Id</td>
+                <td>@room.HotelId</td>
+                <td>@room.Room_Number</td>
+                <td>@room.Room_Type</td>
+                <td>₹@room.Price</td>
+                <td>@room.Status</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@room.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Hotel" asp-action="Index" class="btn btn-secondary">Back to Hotels</a>

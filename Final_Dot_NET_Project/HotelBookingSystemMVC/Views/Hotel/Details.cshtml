@@ -1,0 +1,19 @@
+@model HotelViewModel
+@{
+    ViewData["Title"] = "Hotel Details";
+}
+
+<h1>Hotel Details</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Hotel Name</dt>
+    <dd class="col-sm-9">@Model.HotelName</dd>
+    <dt class="col-sm-3">City</dt>
+    <dd class="col-sm-9">@Model.City</dd>
+    <dt class="col-sm-3">Maximum Rooms</dt>
+    <dd class="col-sm-9">@Model.Room</dd>
+</dl>
+
+<a asp-controller="Room" asp-action="Index" asp-route-hotelId="@Model.Id" class="btn btn-primary">View Rooms</a>
+<a asp-action="Index" class="btn btn-secondary">Back</a>

@@ -1,0 +1,123 @@
+@model ReservationViewModel
+@{
+    ViewData["Title"] = "Create Reservation";
+    var rooms = ViewBag.Rooms as List<RoomViewModel> ?? new List<RoomViewModel>();
+    var hotels = ViewBag.Hotels as List<HotelViewModel> ?? new List<HotelViewModel>();
+}
+
+<h1>Create Reservation</h1>
+<p class="text-muted">Select a customer, dates, guests, a hotel, and one or more rooms. One reservation is sent to the API.</p>
+<hr />
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Status" />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label asp-for="CustomerId" class="form-label"></label>
+                <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.Customers">
+                    <option value="">-- Select Customer --</option>
+                </select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Check_In_Date" class="form-label"></label>
+                <input asp-for="Check_In_Date" class="form-control" />
+                <span asp-validation-for="Check_In_Date" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Check_Out_Date" class="form-label"></label>
+                <input asp-for="Check_Out_Date" class="form-control" />
+                <span asp-validation-for="Check_Out_Date" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="No_Guest" class="form-label"></label>
+                <input asp-for="No_Guest" type="number" class="form-control" />
+                <span asp-validation-for="No_Guest" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HotelId" class="form-label"></label>
+                <select asp-for="HotelId" class="form-select" id="hotelSelect">
+                    <option value="0">-- Select Hotel --</option>
+                    @foreach (var hotel in hotels)
+                    {
+                        if (Model.HotelId == hotel.Id)
+                        {
+                            <option value="@hotel.Id" selected>@hotel.HotelName</option>
+                        }
+                        else
+                        {
+                            <option value="@hotel.Id">@hotel.HotelName</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <h5>Select Rooms</h5>
+    <p id="hotelHint" class="text-muted">Please select a hotel.</p>
+    <table class="table table-bordered" id="roomTable">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Room Number</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in rooms)
+            {
+                <tr data-hotel="@room.HotelId" class="hotel-room" style="display:none;">
+                    <td>
+                        <input class="form-check-input"
+                               type="checkbox"
+                               name="SelectedRoomIds"
+                               value="@room.Id" />
+                    </td>
+                    <td>@room.Room_Number</td>
+                    <td>@room.Room_Type</td>
+                    <td>₹@room.Price</td>
+                    <td>@room.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Create Reservation</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function filterRoomsByHotel() {
+            var hotelId = document.getElementById('hotelSelect').value;
+            var rows = document.querySelectorAll('tr.hotel-room');
+            var any = false;
+            rows.forEach(function (row) {
+                var match = hotelId && hotelId !== '0' && row.getAttribute('data-hotel') === hotelId;
+                row.style.display = match ? '' : 'none';
+                if (!match) {
+                    var cb = row.querySelector('input[type=checkbox]');
+                    if (cb) { cb.checked = false; }
+                }
+                if (match) { any = true; }
+            });
+            document.getElementById('hotelHint').style.display = (hotelId && hotelId !== '0') ? 'none' : '';
+            document.getElementById('roomTable').style.display = (hotelId && hotelId !== '0') ? '' : 'none';
+        }
+        document.getElementById('hotelSelect').addEventListener('change', filterRoomsByHotel);
+        filterRoomsByHotel();
+    </script>
+}

@@ -1,0 +1,36 @@
+@model List<BillingViewModel>
+@{
+    ViewData["Title"] = "Billing";
+}
+
+<h1>Billing</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Generate Bill</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Bill Id</th>
+            <th>Reservation Id</th>
+            <th>Total Amount</th>
+            <th>Payment Status</th>
+            <th>Payment Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bill in Model)
+        {
+            <tr>
+                <td>@bill.Id</td>
+                <td>@bill.ReservationId</td>
+                <td>₹@bill.Total_Ammount</td>
+                <td>@bill.Payment_Status</td>
+                <td>@(bill.PayementDate?.ToString("yyyy-MM-dd HH:mm") ?? "-")</td>
+                <td>
+                    <a asp-action="Payment" asp-route-id="@bill.Id" class="btn btn-sm btn-outline-primary">Payment</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

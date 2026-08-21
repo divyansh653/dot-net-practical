@@ -1,0 +1,36 @@
+@model BillingViewModel
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h1>Payment</h1>
+<hr />
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<dl class="row">
+    <dt class="col-sm-3">Bill ID</dt>
+    <dd class="col-sm-9">@Model.Id</dd>
+    <dt class="col-sm-3">Reservation ID</dt>
+    <dd class="col-sm-9">@Model.ReservationId</dd>
+    <dt class="col-sm-3">Total Amount</dt>
+    <dd class="col-sm-9">₹@Model.Total_Ammount</dd>
+    <dt class="col-sm-3">Payment Status</dt>
+    <dd class="col-sm-9">@Model.Payment_Status</dd>
+    <dt class="col-sm-3">Payment Date</dt>
+    <dd class="col-sm-9">@(Model.PayementDate?.ToString("yyyy-MM-dd HH:mm") ?? "-")</dd>
+</dl>
+
+@if (Model.Payment_Status != "Paid")
+{
+    <form asp-action="Payment" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-success">Make Payment</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-success">This bill is already paid.</div>
+}
+
+<a asp-action="Index" class="btn btn-secondary mt-2">Back</a>

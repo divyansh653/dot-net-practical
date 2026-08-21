@@ -1,0 +1,70 @@
+@model RoomViewModel
+@{
+    ViewData["Title"] = "Edit Room";
+}
+
+<h1>Edit Room</h1>
+<p class="text-muted">Room ID, room number, and hotel cannot be changed.</p>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="HotelId" />
+            <input type="hidden" asp-for="Room_Number" />
+
+            <div class="mb-3">
+                <label class="form-label">Room ID</label>
+                <input asp-for="Id" class="form-control" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Hotel Id</label>
+                <input asp-for="HotelId" class="form-control" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Room_Number" class="form-label"></label>
+                <input asp-for="Room_Number" class="form-control" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Room_Type" class="form-label"></label>
+                <select asp-for="Room_Type" class="form-select">
+                    <option value="Standard">Standard</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Suite">Suite</option>
+                </select>
+                <span asp-validation-for="Room_Type" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" type="number" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Status" class="form-label"></label>
+                <select asp-for="Status" class="form-select">
+                    <option value="Available">Available</option>
+                    <option value="Occupied">Occupied</option>
+                    <option value="Maintenance">Maintenance</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a asp-action="Index" asp-route-hotelId="@Model.HotelId" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
