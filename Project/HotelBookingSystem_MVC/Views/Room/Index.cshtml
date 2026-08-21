@@ -1,0 +1,39 @@
+@model List<RoomViewModel>
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<h1>Rooms</h1>
+
+@if (ViewBag.HotelId != null)
+{
+    <p class="text-muted">Showing rooms for Hotel ID @ViewBag.HotelId</p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.Room_Number</td>
+                <td>@room.Room_Type</td>
+                <td>₹@room.Price</td>
+                <td>@room.Status</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@room.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Hotel" asp-action="Index" class="btn btn-secondary">Back to Hotels</a>

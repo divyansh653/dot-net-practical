@@ -1,0 +1,33 @@
+@model BillingViewModel
+@{
+    ViewData["Title"] = "Generate Bill";
+}
+
+<h1>Generate Bill</h1>
+<p class="text-muted">The amount is calculated by the API: sum of room prices × number of nights. You do not enter the amount.</p>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="ReservationId" class="form-label"></label>
+                <select asp-for="ReservationId" class="form-select" asp-items="ViewBag.Reservations">
+                    <option value="">-- Select Reservation --</option>
+                </select>
+                <span asp-validation-for="ReservationId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Generate Bill</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

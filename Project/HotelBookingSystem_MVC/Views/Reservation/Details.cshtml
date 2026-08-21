@@ -1,0 +1,62 @@
+@model ReservationViewModel
+@{
+    ViewData["Title"] = "Reservation Details";
+}
+
+<h1>Reservation Details</h1>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Reservation Id</dt>
+    <dd class="col-sm-9">@Model.Id</dd>
+    <dt class="col-sm-3">Customer Id</dt>
+    <dd class="col-sm-9">@Model.CustomerId</dd>
+    <dt class="col-sm-3">Check-in</dt>
+    <dd class="col-sm-9">@Model.Check_In_Date.ToString("yyyy-MM-dd")</dd>
+    <dt class="col-sm-3">Check-out</dt>
+    <dd class="col-sm-9">@Model.Check_Out_Date.ToString("yyyy-MM-dd")</dd>
+    <dt class="col-sm-3">Guests</dt>
+    <dd class="col-sm-9">@Model.No_Guest</dd>
+    <dt class="col-sm-3">Status</dt>
+    <dd class="col-sm-9">@Model.Status</dd>
+    <dt class="col-sm-3">Created At</dt>
+    <dd class="col-sm-9">@Model.Created_At</dd>
+</dl>
+
+<h5>Booked Rooms</h5>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Room Id</th>
+            <th>Room Number</th>
+            <th>Type</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.ReservationRooms != null)
+        {
+            foreach (var rr in Model.ReservationRooms)
+            {
+                <tr>
+                    <td>@rr.RoomId</td>
+                    <td>@(rr.Room?.Room_Number)</td>
+                    <td>@(rr.Room?.Room_Type)</td>
+                    <td>@(rr.Room != null ? $"₹{rr.Room.Price}" : "")</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Billing" asp-action="Create" class="btn btn-primary">Generate Billing</a>
+
+@if (Model.Status != "Cancelled")
+{
+    <form asp-action="DeleteConfirmed" method="post" class="d-inline">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Cancel Reservation</button>
+    </form>
+}
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="p-4 bg-light rounded-3 mb-4">
+    <h1 class="display-6">Hotel Booking System</h1>
+    <p class="lead mb-0">Create customers and hotels, update auto-generated rooms, then book and pay.</p>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Customers</h5>
+                <p class="card-text">Register customers before creating a reservation.</p>
+                <a asp-controller="Customer" asp-action="Index" class="btn btn-primary">Customers</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Hotels</h5>
+                <p class="card-text">Add a hotel and rooms are created automatically.</p>
+                <a asp-controller="Hotel" asp-action="Index" class="btn btn-primary">Hotels</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Rooms</h5>
+                <p class="card-text">Set room type, price, and status for each room.</p>
+                <a asp-controller="Room" asp-action="Index" class="btn btn-primary">Rooms</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Reservations</h5>
+                <p class="card-text">Book one or more rooms for a customer.</p>
+                <a asp-controller="Reservation" asp-action="Index" class="btn btn-primary">Reservations</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Billing</h5>
+                <p class="card-text">Generate the bill from room prices and make payment.</p>
+                <a asp-controller="Billing" asp-action="Index" class="btn btn-primary">Billing</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@model List<HotelViewModel>
+@{
+    ViewData["Title"] = "Hotels";
+}
+
+<h1>Hotels</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Hotel</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hotel Name</th>
+            <th>City</th>
+            <th>Maximum Rooms</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in Model)
+        {
+            <tr>
+                <td>@hotel.HotelName</td>
+                <td>@hotel.City</td>
+                <td>@hotel.Room</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@hotel.Id" class="btn btn-sm btn-outline-secondary">Details</a>
+                    <a asp-controller="Room" asp-action="Index" asp-route-hotelId="@hotel.Id" class="btn btn-sm btn-outline-primary">View Rooms</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
